@@ -6,8 +6,6 @@
 
 ## Running it locally 🚀
 
-<br>
-
 - Install poetry
 
   `$ pip install poetry`
@@ -40,4 +38,4 @@
 
 ### Acknowledgements
 
-#### Data provided by: [Vopani's Kaggle](https://www.kaggle.com/rohanrao/formula-1-world-championship-1950-2020)
+ * Data provided by [Vopani's Kaggle](https://www.kaggle.com/rohanrao/formula-1-world-championship-1950-2020)
