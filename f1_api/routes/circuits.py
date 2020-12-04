@@ -5,11 +5,24 @@ from data_provider import dataset as data
 bp = Blueprint("circuits", __name__, url_prefix="/circuits")
 
 
+@bp.route("/<int:id>")
+def circuitsId(id):
+    """
+    GET
+    Retorna todos os circuitos por localização
+    """
+    try:
+        result = Circuits.fetchById(data["circuits"], id)
+        return jsonify(result)
+    except Exception as e:
+        return "<h1>404 - Nothing Found </h1>: <br> {}".format(e)
+
+
 @bp.route("/location/<string:location>")
 def circuitsLocation(location):
     """
     GET
-    Retorna todos os circuitos por ano localização
+    Retorna todos os circuitos por localização
     """
     try:
         location = location.capitalize()

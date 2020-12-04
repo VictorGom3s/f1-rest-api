@@ -6,6 +6,19 @@ from data_provider import dataset as data
 bp = Blueprint("drivers", __name__, url_prefix="/drivers")
 
 
+@bp.route("/<int:id>")
+def driversId(id):
+    """
+    GET
+    Retorna todos os pilotos de uma determinada nacionalidade
+    """
+    try:
+        result = Drivers.fetchById(data["drivers"], id)
+        return jsonify(result)
+    except Exception as e:
+        return "<h1>404 - Nothing Found </h1>: <br> {}".format(e)
+
+
 @bp.route("/<string:nationality>")
 def driversNationality(nationality):
     """

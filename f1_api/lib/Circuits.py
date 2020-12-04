@@ -31,3 +31,13 @@ class Circuits:
         result = result.to_dict("records")
 
         return result
+
+    @staticmethod
+    def fetchById(dataset, circuitId):
+        if dataset is None:
+            raise Exception("Dataset cannot be None")
+
+        result = dataset[dataset["circuitId"] == circuitId]
+        result = result.to_dict("records")
+
+        return result
