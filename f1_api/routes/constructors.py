@@ -60,16 +60,14 @@ def constructorsRefName(ref):
         return "<h1>404 - Nothing Found </h1>: <br> {}".format(e)
 
 
-@bp.route("/titles")
-def constructorsTitles():
+@bp.route("/unique")
+def constructorsUnique():
     """
     GET
-    Retorna os 10 construtores com mais titulos ordenados decrescentemente
+    Retorna todos os construtores da história da F1
     """
     try:
-        result = Constructors.fetchByMostTitles(
-            data["constructors"], data["constructor_standings"]
-        )
+        result = Constructors.fetchAllUniqueConstructors(data["constructors"])
         return jsonify(result)
     except Exception as e:
         return "<h1>404 - Nothing Found </h1>: <br> {}".format(e)

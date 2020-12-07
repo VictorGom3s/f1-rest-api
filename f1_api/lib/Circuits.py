@@ -41,3 +41,13 @@ class Circuits:
         result = result.to_dict("records")
 
         return result
+
+    @staticmethod
+    def fetchAllUniqueCircuits(dataset):
+        if dataset is None:
+            raise Exception("Dataset cannot be None")
+
+        result = dataset.groupby(dataset["name"]).max().reset_index()
+        result = result.to_dict("records")
+
+        return result

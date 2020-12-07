@@ -1,6 +1,6 @@
 from flask import Flask
 from pandas import pandas as pd
-from routes import drivers, constructors, circuits
+from routes import drivers, constructors, circuits, races
 import data_provider
 
 app = Flask(__name__)
@@ -10,6 +10,7 @@ data_provider.load_dataset()
 app.register_blueprint(drivers.bp)
 app.register_blueprint(constructors.bp)
 app.register_blueprint(circuits.bp)
+app.register_blueprint(races.bp)
 
 
 @app.route("/")

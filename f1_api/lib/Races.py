@@ -1,23 +1,23 @@
 from pandas import pandas as pd
 
 
-class Constructors:
+class Races:
     @staticmethod
-    def fetchById(dataset, constructorId):
+    def fetchById(dataset, raceId):
         if dataset is None:
             raise Exception("Dataset cannot be None")
 
-        result = dataset[dataset["constructorId"] == constructorId]
+        result = dataset[dataset["raceId"] == raceId]
         result = result.to_dict("records")
 
         return result
 
     @staticmethod
-    def fetchByNationality(dataset, nationality):
+    def fetchByYear(dataset, year):
         if dataset is None:
             raise Exception("Dataset cannot be None")
 
-        result = dataset[dataset["nationality"] == nationality]
+        result = dataset[dataset["year"] == year]
         result = result.to_dict("records")
 
         return result
@@ -33,21 +33,11 @@ class Constructors:
         return result
 
     @staticmethod
-    def fetchByRefName(dataset, constructorRef):
+    def fetchByDate(dataset, date):
         if dataset is None:
             raise Exception("Dataset cannot be None")
 
-        result = dataset[dataset["constructorRef"] == constructorRef]
-        result = result.to_dict("records")
-
-        return result
-
-    @staticmethod
-    def fetchAllUniqueConstructors(dataset):
-        if dataset is None:
-            raise Exception("Dataset cannot be None")
-
-        result = dataset.groupby(dataset["name"]).max().reset_index()
+        result = dataset[dataset["date"] == date]
         result = result.to_dict("records")
 
         return result

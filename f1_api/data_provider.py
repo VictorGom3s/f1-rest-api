@@ -12,9 +12,8 @@ dataset = {
 def load_dataset():
     try:
         dataset["drivers"] = pd.read_csv("data/drivers.csv")
-        dataset["races"] = pd.read_csv("data/races.csv")
+        dataset["races"] = pd.read_csv("data/races.csv", parse_dates=["date"])
         dataset["circuits"] = pd.read_csv("data/circuits.csv")
         dataset["constructors"] = pd.read_csv("data/constructors.csv")
-        dataset["constructor_standings"] = pd.read_csv("data/constructor_standings.csv")
     except:
         raise Exception("Could not load data")

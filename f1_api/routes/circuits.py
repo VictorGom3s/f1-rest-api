@@ -61,3 +61,16 @@ def circuitsCountry(country):
         return jsonify(result)
     except Exception as e:
         return "<h1>404 - Nothing Found: </h1> <br> {}".format(e)
+
+
+@bp.route("/unique")
+def circuitsUnique():
+    """
+    GET
+    Retorna todos os construtores da história da F1
+    """
+    try:
+        result = Circuits.fetchAllUniqueCircuits(data["circuits"])
+        return jsonify(result)
+    except Exception as e:
+        return "<h1>404 - Nothing Found </h1>: <br> {}".format(e)
