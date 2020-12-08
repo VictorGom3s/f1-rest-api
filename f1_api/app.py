@@ -18,12 +18,4 @@ def home():
     return "<h1>Welcome to the F1 REST API</h1>"
 
 
-@app.route("/races/<string:date>")
-def raceDate(date):
-    """
-    GET
-    Retorna informações sobre a corrida em uma determinada data.
-    """
-
-
 app.run(debug=True)
